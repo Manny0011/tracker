@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - FinTrack Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <main class="auth-screen">
+        <section class="auth-panel register-panel">
+            <div class="brand-mark">
+                <span>F</span>
+            </div>
+            <div class="auth-heading">
+                <p class="eyebrow-text">FinTrack Pro</p>
+                <h1>Create account</h1>
+                <p>Start tracking your finances with a clean dashboard built for daily money decisions.</p>
+            </div>
+            <form id="signupForm" class="account-form">
+                <div class="control-block">
+                    <label for="signupName">Full name</label>
+                    <div class="control-shell">
+                        <input type="text" id="signupName" placeholder="Enter your full name" required>
+                    </div>
+                </div>
+                <div class="control-block">
+                    <label for="signupEmail">Email address</label>
+                    <div class="control-shell">
+                        <input type="email" id="signupEmail" placeholder="Enter your email" required>
+                    </div>
+                </div>
+                <div class="control-block">
+                    <label for="signupPassword">Password</label>
+                    <div class="control-shell password-shell">
+                        <input type="password" id="signupPassword" placeholder="Enter password" required>
+                        <span class="password-icon">👁</span>
+                    </div>
+                </div>
+                <div class="control-block">
+                    <label for="signupConfirm">Confirm password</label>
+                    <div class="control-shell password-shell">
+                        <input type="password" id="signupConfirm" placeholder="Confirm password" required>
+                        <span class="password-icon">👁</span>
+                    </div>
+                </div>
+                <button type="submit" class="primary-action">Register</button>
+            </form>
+            <p class="switch-copy">Already have an account? <a href="index.html">Login</a></p>
+        </section>
+    </main>
+    <script src="register.js"></script>
+</body>
+</html>

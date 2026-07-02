@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - FinTrack Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <main class="auth-screen">
+        <section class="auth-panel">
+            <div class="brand-mark">
+                <span>F</span>
+            </div>
+            <div class="auth-heading">
+                <p class="eyebrow-text">Enterprise Finance</p>
+                <h1>Welcome back</h1>
+                <p>Sign in to monitor your income, expenses and cash flow with FinTrack Pro.</p>
+            </div>
+            <form id="signinForm" class="account-form">
+                <div class="control-block">
+                    <label for="signinEmail">Email address</label>
+                    <div class="control-shell">
+                        <input type="email" id="signinEmail" placeholder="Enter your email" required>
+                    </div>
+                </div>
+                <div class="control-block">
+                    <label for="signinPassword">Password</label>
+                    <div class="control-shell password-shell">
+                        <input type="password" id="signinPassword" placeholder="Enter your password" required>
+                        <span class="password-icon">👁</span>
+                    </div>
+                </div>
+                <button type="submit" class="primary-action">Login</button>
+            </form>
+            <p class="switch-copy">Don't have an account? <a href="register.html">Create account</a></p>
+        </section>
+    </main>
+    <script src="login.js"></script>
+</body>
+</html>
