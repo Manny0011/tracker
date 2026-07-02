@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Dashboard - FinTrack Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="shortcut icon" href="./heart.png" type="image/x-icon">
+</head>
+<body class="dark-theme">
+    <main id="financeWorkspace" class="workspace-shell">
+        <aside id="appSidebar" class="side-panel">
+            <div class="sidebar-topline">
+                <div id="brandBlock" class="brand-block">
+                    <div class="brand-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <div>
+                        <h2>FinTrack Pro</h2>
+                        <p>Enterprise Finance</p>
+                    </div>
+                </div>
+                <div id="navStack" class="navigation-stack">
+                    <button type="button" id="dashboardHome" class="nav-item active-nav">
+                        <span>🏠</span>
+                        <strong>Dashboard</strong>
+                    </button>
+                    <button type="button" id="openTransactionPanel" class="nav-item add-nav-item">
+                        <span>➕</span>
+                        <strong>Add Transaction</strong>
+                    </button>
+                </div>
+            </div>
+            <div class="sidebar-footnote">
+                <p>Smart money tracking</p>
+                <span>Secure local dashboard</span>
+            </div>
+        </aside>
+        <section id="contentStage" class="dashboard-stage">
+            <header id="heroHeader" class="topbar-card">
+                <div class="welcome-copy">
+                    <p>Welcome back</p>
+                    <h1>Financial Dashboard <span>👋</span></h1>
+                    <span>Track your income, expenses and financial growth in one place.</span>
+                </div>
+                <div class="profile-actions">
+                    <button type="button" id="colorModeSwitch" class="theme-switch" aria-label="Toggle theme"></button>
+                    <div class="profile-chip">
+                        <div class="avatar-dot"><i class="fa-solid fa-user"></i></div>
+                        <h3 id="accountName"></h3>
+                    </div>
+                    <button type="button" id="logoutAction" class="logout-pill">Logout</button>
+                </div>
+            </header>
+            <section id="overviewIntro" class="page-intro">
+                <div>
+                    <h2>Financial Dashboard</h2>
+                    <p>Monitor your income, expenses and cash flow in real time.</p>
+                </div>
+                <button type="button" class="period-chip">This Month</button>
+            </section>
+            <section id="metricGrid" class="metric-grid">
+                <article id="balanceMetric" class="metric-card balance-card">
+                    <div class="metric-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <div>
+                        <p>Current Balance</p>
+                        <h2 id="netBalance">₹0</h2>
+                    </div>
+                </article>
+                <article id="incomeMetric" class="metric-card income-card">
+                    <div class="metric-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <div>
+                        <p>Total Income</p>
+                        <h2 id="grossIncome">₹0</h2>
+                    </div>
+                </article>
+                <article id="expenseMetric" class="metric-card expense-card">
+                    <div class="metric-icon"><i class="fa-solid fa-arrow-trend-down"></i></div>
+                    <div>
+                        <p>Total Expense</p>
+                        <h2 id="grossExpense">₹0</h2>
+                    </div>
+                </article>
+                <article id="transactionMetric" class="metric-card count-card">
+                    <div class="metric-icon"><i class="fa-solid fa-wallet"></i></div>
+                    <div>
+                        <p>Total Transactions</p>
+                        <h2 id="ledgerCount">0</h2>
+                    </div>
+                </article>
+            </section>
+            <section id="analyticsCard" class="chart-panel">
+                <div class="section-heading">
+                    <div>
+                        <h3>Cash Flow Analysis</h3>
+                        <p>Income and expense movement by transaction date.</p>
+                    </div>
+                    <button type="button" class="select-chip">Monthly View</button>
+                </div>
+                <div id="chartViewport" class="chart-viewport">
+                    <canvas id="cashflowCanvas"></canvas>
+                </div>
+            </section>
+            <section id="transactionPanel" class="ledger-panel">
+                <div class="section-heading ledger-heading">
+                    <div>
+                        <h3>Recent Transactions</h3>
+                        <p>Review, search, edit and manage all entries.</p>
+                    </div>
+                    <div id="filterGroup" class="filter-group">
+                        <button type="button" class="filter-pill active-filter">All</button>
+                        <button type="button" class="filter-pill">Income</button>
+                        <button type="button" class="filter-pill">Expense</button>
+                    </div>
+                </div>
+                <div id="ledgerTools" class="ledger-tools">
+                    <div class="search-field">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="ledgerSearch" placeholder="Search transactions...">
+                    </div>
+                </div>
+                <div class="table-scroll">
+                    <table class="transaction-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Category</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ledgerBody"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+        <div id="transactionLayer" class="modal-layer">
+            <div id="transactionDialog" class="transaction-dialog">
+                <div id="dialogHeader" class="dialog-header">
+                    <div>
+                        <p>Finance Entry</p>
+                        <h2>Add Transaction</h2>
+                    </div>
+                    <button type="button" id="closeTransactionPanel" class="close-action">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <form id="transactionForm" class="transaction-form">
+                    <div class="field-block">
+                        <label for="entryType">Type</label>
+                        <select id="entryType" required>
+                            <option value="expense">Expense</option>
+                            <option value="income">Income</option>
+                        </select>
+                    </div>
+                    <div class="field-block">
+                        <label for="entryNote">Description</label>
+                        <input id="entryNote" required type="text" placeholder="e.g. Amazon, Salary, Coffee">
+                    </div>
+                    <div id="amountDateGrid" class="two-field-grid">
+                        <div class="field-block">
+                            <label for="entryAmount">Amount</label>
+                            <input required id="entryAmount" type="number" placeholder="₹0">
+                        </div>
+                        <div class="field-block">
+                            <label for="entryDate">Date</label>
+                            <input required id="entryDate" type="date">
+                        </div>
+                    </div>
+                    <div class="field-block">
+                        <label for="entryCategory">Category</label>
+                        <select id="entryCategory" required>
+                            <option value="" selected disabled>Select a category</option>
+                            <option value="food and dining">Food & Dining</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="Recharg and Bill">Recharge and Bill</option>
+                            <option value="petrol and auto">Petrol & Auto</option>
+                            <option value="utilities">Utilities</option>
+                            <option value=" salary">Salary</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <input type="submit" id="saveTransaction" class="submit-action" value="Add Transaction">
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
